@@ -99,8 +99,8 @@ img {
 
 .controls__wrapper {
   display: flex;
-  justify-content: flex-end;
-  padding: 2em 0 4em 0em;
+  justify-content: center;
+  padding: 1em 0 4em 0em;
 }
 
 input {
@@ -108,10 +108,21 @@ input {
 }
 
 .radio_wrapper {
-  width: 3em; 
-  height: 3em;
+  width: 4em; 
+  height: 4em;
   cursor: pointer;
   margin-right: 0.5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.radio {
+  width: 4em; 
+  height: 4em;
+}
+
+.radio-styled {
+  align-self: center;
 }
 
 .radio .radio-styled {
