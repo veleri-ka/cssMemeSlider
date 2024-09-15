@@ -40,6 +40,10 @@ body {
 
 /*slider*/
 
+.meme_slider {
+  margin: 0 auto;
+}
+
 .meme_slider_content {
     display: flex;
     flex-wrap: wrap;
@@ -47,67 +51,51 @@ body {
     width: 60%;
     margin: auto;
     background-color: #000000;
+    overflow: hidden;
 }
 
-.slider__container {
-  padding-top: 2em;
-  background-color: grey;
-}
 
 .slider_pics {
-  display: grid;
-  grid-template-columns: repeat(4,100%);
-  overflow: hidden;
+  display: flex;
+  width: 400%;
   border-radius: 1em;
   transition: transform .5s ease-in-out;
+  padding: 0;
+  height: 70em;
+}
+
+.slider_pics li {
+  list-style: none;
+  flex: 1 0 100%;
 }
 
 img {
   display: block;
   margin: auto;
   border-radius: 2rem;
-  max-width: 70em;
-  max-height: 50em;
-  /*opacity: 0;
-  visibility: hidden;*/
-}
-
-.meme2,
-.meme3,
-.meme4 {
-  transform: translate(-80em,0px);
-  transition: ease-in-out .5s;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.slider li {
-  list-style: none;
-  height: 0;
-  display: flex;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .meme_text {
   display: flex;
-  padding-left: 2em;
+  padding-left: 12em;
 }
 
 .meme__description {
   display: flex;
   color:#F1F1F2;
   font-size: 2em;
-}
-
-.meme__description:nth-child(n+2) {
-    opacity: 0;
-    visibility: hidden;
-    width: 0;
+  opacity: 0;
+  width: 0;
+  transition: opacity 0.6s ease-in-out;
 }
 
 .controls__wrapper {
   display: flex;
   justify-content: flex-end;
-  padding: 20px 10px 60px 0;
+  padding: 2em 10em 6em 0;
 }
 
 input {
@@ -130,26 +118,44 @@ input {
   cursor: pointer;
 }
 
-.radio input:hover +  .radio_wrapper > .radio-styled { 
+.radio:hover .radio-styled {
+  background: white;
+}
+
+.radio:focus .radio-styled { 
   background:white; 
 }
 
-.radio input:focus + .radio_wrapper > .radio-styled { 
-  background:white; 
+#meme1:checked ~ .meme_slider_content .controls__wrapper label[for="meme1"] .radio-styled,
+#meme2:checked ~ .meme_slider_content .controls__wrapper label[for="meme2"] .radio-styled,
+#meme3:checked ~ .meme_slider_content .controls__wrapper label[for="meme3"] .radio-styled,
+#meme4:checked ~ .meme_slider_content .controls__wrapper label[for="meme4"] .radio-styled {
+    background: #bf0baa;
 }
 
-.radio input:checked + .radio_wrapper > .radio-styled { 
-  background: #bf0baa;
+input:checked:nth-of-type(1) ~ .meme_slider_content .slider_pics {
+  transform: translateX(0%);
 }
 
-#meme2:checked ~ .slider > .meme3,
-#meme3:checked ~ .slider > .meme4,
-#meme4:checked ~ .slider > .meme1 {
-  opacity: 1;
-  z-index: 1;
-  transform: translate(0px,0px);
+input:checked:nth-of-type(2) ~ .meme_slider_content .slider_pics {
+  transform: translateX(-100%);
 }
 
+input:checked:nth-of-type(3) ~ .meme_slider_content .slider_pics {
+  transform: translateX(-200%);
+}
+
+input:checked:nth-of-type(4) ~ .meme_slider_content .slider_pics {
+  transform: translateX(-300%);
+}
+
+input:checked:nth-of-type(1) ~ .meme_slider_content .meme_text .desc1,
+input:checked:nth-of-type(2) ~ .meme_slider_content .meme_text .desc2,
+input:checked:nth-of-type(3) ~ .meme_slider_content .meme_text .desc3,
+input:checked:nth-of-type(4) ~ .meme_slider_content .meme_text .desc4 {
+    opacity: 1;
+    width: auto;
+}
 
 /*footer*/
 footer {
