@@ -19,20 +19,30 @@ body {
     font-weight: 400;
     display: flex;
     flex-direction: column;
-    font-family:'Roboto Mono', monospace;;
+    font-family:'Roboto Mono', monospace;
+    justify-content: space-between;
+}
+
+main {
+  display: flex;
 }
 
 ul {
   margin: 0;
 }
 
+li {
+  list-style: none;
+  display: flex;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
-    height: 100%;
 }
 
-  /*Header*/
+/*Header*/
+
 .header__title {
     display: flex;
     font-weight: 600;
@@ -41,6 +51,7 @@ ul {
     padding: 1em 0;
     margin: 0 auto;
     text-align: center;
+    height: 100%;
   }
 
 /*slider*/
@@ -48,13 +59,14 @@ ul {
 .meme_slider {
   margin: 0 auto;
   padding: 0 2em;
+  max-width: 80em;
 }
 
 .meme_slider_content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    max-width: 102em;
+    max-width: 100em;
     margin: auto;
     background-color: #000000;
     overflow: hidden;
@@ -66,12 +78,11 @@ ul {
   border-radius: 1em;
   transition: transform .5s ease-in-out;
   padding: 0;
-  height: 70em;
-  padding: 2em 0 1em 0em;
+  height: 77vh;
+  height: auto;
 }
 
 .slider_pics li {
-  list-style: none;
   flex: 1 0 100%;
 }
 
@@ -80,9 +91,15 @@ img {
   margin: auto;
   border-radius: 2rem;
   max-width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height:100%;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  max-width: 90%;
+  max-height: 90%;
+  height: auto; 
+  transition: all 0.3s ease;
 }
+
 
 .meme_text {
   display: flex;
@@ -95,6 +112,8 @@ img {
   opacity: 0;
   width: 0;
   transition: opacity width 0.5s ease-in-out;
+  transform: translateX(400%); 
+  transition: opacity 0s ease-in-out, transform 0.6s ease-in-out; 
 }
 
 .controls__wrapper {
@@ -114,6 +133,7 @@ input {
   margin-right: 0.5em;
   display: flex;
   justify-content: space-between;
+  justify-content: space-around;
 }
 
 .radio {
@@ -123,6 +143,7 @@ input {
 
 .radio-styled {
   align-self: center;
+
 }
 
 .radio .radio-styled {
@@ -141,6 +162,13 @@ input {
 
 .radio:focus .radio-styled { 
   background:white; 
+}
+
+#meme1:active ~ .meme_slider_content .controls__wrapper label[for="meme1"] .radio-styled,
+#meme2:active ~ .meme_slider_content .controls__wrapper label[for="meme2"] .radio-styled,
+#meme3:active ~ .meme_slider_content .controls__wrapper label[for="meme3"] .radio-styled,
+#meme4:active ~ .meme_slider_content .controls__wrapper label[for="meme4"] .radio-styled {
+    border: 0.25em solid greenyellow;
 }
 
 #meme1:checked ~ .meme_slider_content .controls__wrapper label[for="meme1"] .radio-styled,
@@ -172,6 +200,7 @@ input:checked:nth-of-type(3) ~ .meme_slider_content .meme_text .desc3,
 input:checked:nth-of-type(4) ~ .meme_slider_content .meme_text .desc4 {
     opacity: 1;
     width: auto;
+    transform: translateX(0);
 }
 
 /*footer*/
@@ -185,14 +214,14 @@ footer {
   }
 
   .footer-container {
-    margin: 0px auto;
+    margin: 0 auto;
     padding: 4em 0;
     justify-content: space-between;
   }
 
   .footer-item {
     align-items: center;
-    padding-right: 5em;
+    padding: 0 1em;
   }
 
   .footer-date {
@@ -217,11 +246,14 @@ footer {
     border-radius: 1em;
   }
 
-  /*media*/
+/*media*/
 
-  @media (min-width: 768px) and (max-width: 1039px) {
-    .meme_slider_content {
-      max-width: 85em;
+ @media (min-width: 768px) and (max-width: 1039px) {
+   .meme_slider_content {
+      max-width: 90em;
+    }
+    .slider_pics {
+    height: auto; 
     }
     .controls__wrapper {
       padding-left: 15em;
@@ -229,36 +261,34 @@ footer {
   }
 
   @media (min-width: 540px) and (max-width: 767px) {
-    .meme_slider_content {
-      max-width: 50em;
+   .meme_slider_content {
+      max-width: 80em;
     }
- 
     .header__title {
       flex-wrap: wrap;
       padding: 1em;
     }
-    .slider_pics {
-      height: 50em;
+   .slider_pics {
+      height: auto;
     }
-  }
+}
 
   @media (min-width: 320px) and (max-width: 539px) {
     .meme_slider_content {
-      max-width: 30em;
+      max-width: 70em;
       justify-content: space-between;
     }
- 
     .slider_pics {
-      height: 30em;
+      height: auto;
     }
-
     .controls__wrapper {
       padding-left: 7em;
+      padding: 0 0 0 7em;
     }
-   
     .meme_text {
       order: 3;
-      padding-left: 1em;
+      padding-left: 4em;
+      padding-right: 4em;
     }
   }
 
