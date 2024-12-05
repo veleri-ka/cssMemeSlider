@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme's around us</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/7.0.0/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/ico/meme.ico">
+</head>
+<body>
+    <header class="header wrapper">
+        <h1 class="header__title">Welcome to the Meme's World!</h1>
+    </header>
+    <main>
+        <div class="meme_slider wrapper">
+            <input type="radio" name="meme" id="meme1" checked>
+            <input type="radio" name="meme" id="meme2">
+            <input type="radio" name="meme" id="meme3">
+            <input type="radio" name="meme" id="meme4">
+            <div class="meme_slider_content">
+                <ul class="slider_pics">
+                    <li>
+                        <img src="assets/img/meme1.png" class="meme1" alt="Vlad on the call">
+                    </li>
+                    <li>
+                        <img src="assets/img/meme2.png" class="meme2" alt="Baby Yoda become angry">
+                    </li>
+                    <li>
+                        <img src="assets/img/meme3.png" class="meme3" alt="Capybara make friends everywhere">
+                    </li>
+                    <li>
+                        <img src="assets/img/meme4.png" class="meme4" alt="Zoom call with funny animals">
+                    </li>
+                </ul>
+                <div class="meme_text">
+                    <p class="meme__description desc1">Vlad on the call</p>
+                    <p class="meme__description desc2">Low your expectations!</p>
+                    <p class="meme__description desc3">I'm under your skin!</p>
+                    <p class="meme__description desc4">Regular morning meeting</p>
+                </div>
+                <div class="controls__wrapper">
+                    <label class="radio" for="meme1">  
+                        <div class="radio_wrapper"><span class="radio-styled"></span></div>
+                    </label>
+                    <label class="radio" for="meme2">
+                       
+                        <div class="radio_wrapper"><span class="radio-styled"></span></div>
+                    </label>
+                    <label class="radio" for="meme3">
+                        
+                        <div class="radio_wrapper"><span class="radio-styled"></span></div>
+                    </label>
+                    <label class="radio" for="meme4">
+                       
+                        <div class="radio_wrapper"><span class="radio-styled"></span></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-item">
+                <span class="footer-date">2024</span>
+            </div>
+            <div class="footer-item">
+                <a href="https://rs.school/courses/javascript-preschool-ru" class="footer-link-rss" target="_blank"><img src="assets/svg/rs_school_js.svg" alt="RS School logo" width="100" height="50" class="footer-img"></a>
+            </div>
+        </div>
+     </footer>
+</body>
+</html>
